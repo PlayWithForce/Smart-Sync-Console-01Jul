@@ -1,0 +1,27 @@
+{
+  "orgName": "Demo company",
+  "edition": "Developer",
+  "features": [
+    "API",
+    "AuthorApex",
+    "RecordTypes",
+    "StateAndCountryPicklist",
+    "PlatformEncryption",
+    "EnableSetPasswordInApi",
+    "MutualAuthentication"
+  ],
+  "settings": {
+    "lightningExperienceSettings": {
+      "enableS1DesktopEnabled": true
+    },
+    "mobileSettings": {
+      "enableS1EncryptedStoragePref2": true
+    },
+    "securitySettings": {
+      "sessionSettings": {
+        "forceRelogin": false,
+        "sessionTimeout": "TwelveHours"
+      }
+    }
+  }
+}

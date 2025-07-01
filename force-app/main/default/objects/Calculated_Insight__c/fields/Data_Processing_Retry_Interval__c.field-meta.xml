@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Data_Processing_Retry_Interval__c</fullName>
+    <description>The minute value post which the Batch should retry again</description>
+    <externalId>false</externalId>
+    <inlineHelpText>The minute value post which the Batch should retry again . If there is a callout failure for the target system is under maintenance then after this minutes again the whole sync process will be retried</inlineHelpText>
+    <label>Data Processing Retry Interval</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>0</scale>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Number</type>
+    <unique>false</unique>
+</CustomField>

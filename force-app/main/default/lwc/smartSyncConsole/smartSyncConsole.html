@@ -1,0 +1,90 @@
+<template>
+    <lightning-card title="Smart Sync Console" icon-name="custom:custom63">
+        <div class="slds-m-around_medium">
+
+            <!-- Row 1: Calculated Insights + Full Sync -->
+            <div class="slds-grid slds-gutters slds-m-bottom_medium">
+                <div class="slds-col slds-size_2-of-3">
+                    <lightning-combobox
+                        name="calculatedInsight"
+                        label="Calculated Insights"
+                        value={selectedInsight}
+                        options={calculatedInsightOptions}
+                        onchange={handleInsightChange}>
+                    </lightning-combobox>
+                </div>
+                <div class="slds-col slds-size_1-of-3 slds-p-left_small slds-align-bottom">
+                    <div style="width: 160px;">
+                        <lightning-button
+                            label="Full Sync"
+                            title="Full Sync"
+                            onclick={handleFullSync}
+                            disabled={disableFullSync}>
+                        </lightning-button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Row 2: Key Field + Incremental Sync -->
+            <div class="slds-grid slds-gutters slds-m-bottom_medium">
+                <div class="slds-col slds-size_2-of-3">
+                    <lightning-combobox
+                        name="keyField"
+                        label="Key Field"
+                        value={selectedKeyField}
+                        options={keyFieldOptions}
+                        onchange={handleKeyFieldChange}
+                        disabled={disableKeyField}>
+                    </lightning-combobox>
+                </div>
+                <div class="slds-col slds-size_1-of-3 slds-p-left_small slds-align-bottom">
+                    <div style="width: 160px;">
+                        <lightning-button
+                            label="Incremental Sync"
+                            title="Incremental Sync"
+                            onclick={handleIncrementalSync}
+                            disabled={disableIncrementalSync}>
+                        </lightning-button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Row 3: Processing Phase + Status + Initialize -->
+            <div class="slds-grid slds-gutters slds-m-bottom_medium">
+                <div class="slds-col slds-size_1-of-3">
+                    <p class="slds-text-title_caps slds-m-bottom_xx-small"><strong>Processing Phase</strong></p>
+                    <p class="slds-text-body_regular">{processingPhase}</p>
+                </div>
+                <div class="slds-col slds-size_1-of-3">
+                    <p class="slds-text-title_caps slds-m-bottom_xx-small"><strong>Processing Status</strong></p>
+                    <p class="slds-text-body_regular">{processingStatus}</p>
+                </div>
+                <div class="slds-col slds-size_1-of-3 slds-align-bottom">
+                    <div style="width: 160px;">
+                        <lightning-button
+                            label="Initialize"
+                            title="Initialize"
+                            onclick={handleInitialize}>
+                        </lightning-button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Row 4: Help + Processing Error (conditional) -->
+            <div class="slds-grid slds-gutters slds-m-bottom_medium">
+                <div class="slds-col slds-size_1-of-2">
+                    <p class="slds-text-title_caps slds-m-bottom_xx-small"><strong>Help:</strong></p>
+                    <p class="slds-text-body_regular">{helpMessage}</p>
+                </div>
+
+                <template if:true={showProcessingError}>
+                    <div class="slds-col slds-size_1-of-2">
+                        <p class="slds-text-title_caps slds-m-bottom_xx-small"><strong>Processing Error:</strong></p>
+                        <p class="slds-text-body_regular">{processingError}</p>
+                    </div>
+                </template>
+            </div>
+
+        </div>
+    </lightning-card>
+</template>
